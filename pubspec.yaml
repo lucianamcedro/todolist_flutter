@@ -41,6 +41,7 @@ dependencies:
   synchronized: ^3.0.0+3
   path: ^1.8.0
   google_fonts: ^3.0.1
+  flutter_signin_button: ^2.0.0
 
 dev_dependencies:
   flutter_test:
