@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist_provider/app/core/database/sqlite_adm_connection.dart';
+import 'package:todolist_provider/app/core/ui/theme/todo_ui_config.dart';
 import 'package:todolist_provider/app/modules/auth/auth_module.dart';
 import 'package:todolist_provider/app/modules/splash/splash_page.dart';
 
@@ -31,6 +32,7 @@ class _AppWidgetState extends State<AppWidget> {
       debugShowCheckedModeBanner: false,
       title: 'Todo List',
       initialRoute: '/login',
+      theme: TodoUiConfig.theme,
       routes: {
         ...AuthModule().routers,
       },

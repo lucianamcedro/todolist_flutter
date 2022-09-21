@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_conditional_assignment
+// ignore_for_file: prefer_conditional_assignment, constant_identifier_names
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
