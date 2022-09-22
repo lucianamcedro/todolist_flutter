@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "258964973797",
+    "project_id": "todolist-lumc",
+    "storage_bucket": "todolist-lumc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258964973797:android:c2b4401c44158607464c0c",
+        "android_client_info": {
+          "package_name": "br.com.lucianamcedro.todolist_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258964973797-muho95hso9mhecmm96dic3imrn9kq07c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lucianamcedro.todolist_provider",
+            "certificate_hash": "d907bbb7c75276d0a2ec3849db577054afdaaa0a"
+          }
+        },
+        {
+          "client_id": "258964973797-7jh52p61hh7at7238jtrka3e048hmv1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNopwBi4Q2L9cC_0ExSZU0BHtpK28r3BA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258964973797-7jh52p61hh7at7238jtrka3e048hmv1n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "258964973797-4id1nbog1q3g0dl9io5dhkbm7ikmon5i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.lucianamcedro.todolistProvider"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
