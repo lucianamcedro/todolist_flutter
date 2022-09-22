@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todolist_provider/app/core/notifier/default_listener_notifier.dart';
 import 'package:todolist_provider/app/core/ui/theme/theme_extension.dart';
 import 'package:todolist_provider/app/core/validators/validators.dart';
 import 'package:todolist_provider/app/core/widget/todo_list_field.dart';
@@ -21,20 +22,19 @@ class _RegisterPageState extends State<RegisterPage> {
   final _confirmePasswaordEC = TextEditingController();
   @override
   void initState() {
-    final controller = context.read<RegisterController>();
-    controller.addListener(() {
-      var sucess = controller.sucess;
-      var error = controller.error;
-      if (sucess) {
-        Navigator.of(context).pop();
-      } else if (error != null && error.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(error),
-          backgroundColor: Colors.red,
-        ));
-      }
-    });
     super.initState();
+    final defaultListenerNotifier = DefaultListenerNotifier(
+        changeNotifier: context.read<RegisterController>());
+    defaultListenerNotifier.listener(
+      context: context,
+      sucessVoidCallback: ((notifier, listenerNotifier) {
+        listenerNotifier.dispose();
+        Navigator.of(context).pop();
+      }),
+      // errorVoidCallback: (notifier, listenerNotifier) {
+      //   print('Deu ruim!!!');
+      // }
+    );
   }
 
   @override
@@ -42,7 +42,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _emailEC.dispose();
     _passwordEC.dispose();
     _confirmePasswaordEC.dispose();
-    context.read<RegisterController>().removeListener(() {});
 
     super.dispose();
   }
