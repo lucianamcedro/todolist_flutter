@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist_provider/app/core/database/sqlite_adm_connection.dart';
+import 'package:todolist_provider/app/core/navigator/todo_list_navigator.dart';
 import 'package:todolist_provider/app/core/ui/theme/todo_ui_config.dart';
 import 'package:todolist_provider/app/modules/auth/auth_module.dart';
+import 'package:todolist_provider/app/modules/home/home_module.dart';
 import 'package:todolist_provider/app/modules/splash/splash_page.dart';
 
 class AppWidget extends StatefulWidget {
@@ -35,8 +37,10 @@ class _AppWidgetState extends State<AppWidget> {
       title: 'Todo List',
       initialRoute: '/login',
       theme: TodoUiConfig.theme,
+      navigatorKey: TodoListNavigator.navigatorKey,
       routes: {
         ...AuthModule().routers,
+        ...HomeModule().routers,
       },
       home: const SplashPage(),
     );
