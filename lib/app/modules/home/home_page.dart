@@ -5,6 +5,8 @@ import 'package:todolist_provider/app/core/ui/theme/theme_extension.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_drawer.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_filters.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_header.dart';
+import 'package:todolist_provider/app/modules/home/widgets/home_tasks.dart';
+import 'package:todolist_provider/app/modules/home/widgets/home_week_filter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -20,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0xFFFAFBFE),
         elevation: 0,
         iconTheme: IconThemeData(color: context.primaryColor),
         actions: [
@@ -59,6 +61,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       HomeHeader(),
                       HomeFilters(),
+                      HomeWeekFilter(),
+                      HomeTasks(),
                     ],
                   ),
                 ),
