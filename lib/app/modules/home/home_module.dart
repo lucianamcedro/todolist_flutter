@@ -1,4 +1,6 @@
+import 'package:provider/provider.dart';
 import 'package:todolist_provider/app/core/modules/todo_list_module.dart';
+
 import 'package:todolist_provider/app/modules/home/home_page.dart';
 
 class HomeModule extends TodoListModule {
@@ -6,7 +8,7 @@ class HomeModule extends TodoListModule {
       : super(
           // bindings: [],
           routers: {
-            '/home': (context) => const HomePage(),
+            '/home': (context) => HomePage(),
           },
         );
 }
