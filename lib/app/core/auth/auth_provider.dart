@@ -8,6 +8,7 @@ import 'package:todolist_provider/app/service/user/user_service.dart';
 class AuthProvider extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth;
   final UserService _userService;
+
   AuthProvider({
     required FirebaseAuth firebaseAuth,
     required UserService userService,
@@ -16,15 +17,16 @@ class AuthProvider extends ChangeNotifier {
 
   Future<void> logout() => _userService.logout();
   User? get user => _firebaseAuth.currentUser;
+
   void loadListener() {
     _firebaseAuth.userChanges().listen((_) => notifyListeners());
-    _firebaseAuth.idTokenChanges().listen((user) {
+    _firebaseAuth.authStateChanges().listen((user) {
       if (user != null) {
-        TodoListNavigator.to!
-            .pushNamedAndRemoveUntil('/home', (route) => false);
+        TodoListNavigator.to
+            ?.pushNamedAndRemoveUntil('/home', (route) => false);
       } else {
-        TodoListNavigator.to!
-            .pushNamedAndRemoveUntil('/login', (route) => false);
+        TodoListNavigator.to
+            ?.pushNamedAndRemoveUntil('/login', (route) => false);
       }
     });
   }
