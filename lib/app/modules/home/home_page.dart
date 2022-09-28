@@ -7,6 +7,7 @@ import 'package:todolist_provider/app/modules/home/widgets/home_filters.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_header.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_tasks.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_week_filter.dart';
+import 'package:todolist_provider/app/modules/tasks/tasks_module.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -18,6 +19,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void _goToCreateTask(BuildContext context) {
+    // Navigator.of(context).pushNamed('/task/create');
+    Navigator.of(context).push(PageRouteBuilder(
+        transitionDuration: const Duration(
+          milliseconds: 400,
+        ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          animation = CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeInQuad,
+          );
+          return ScaleTransition(
+            scale: animation,
+            alignment: Alignment.bottomRight,
+            child: child,
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return TasksModule().getPage('/task/create', context);
+        }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +65,14 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: context.primaryColor,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () => _goToCreateTask(context),
       ),
       backgroundColor: const Color(0xFFFAFBFE),
       drawer: HomeDrawer(),
