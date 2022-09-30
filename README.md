@@ -13,9 +13,9 @@ Foram utilizadas os seguintes packages para a criação do APP:
      <img width="240" height="519" src="https://user-images.githubusercontent.com/86168060/193192562-0ecde301-ba61-48db-98a9-47d689569bdd.png">
    
  <img width="240" height="519" src="https://user-images.githubusercontent.com/86168060/193192470-4720801e-964e-4d0c-a41f-f6d3b76001c4.png">
- <img width="240" height="519" src="https://user-images.githubusercontent.com/86168060/193192845-f0b7d951-d84c-48e2-9e11-765cca659a40.png">
+ 
   <img width="240" height="519" src="https://user-images.githubusercontent.com/86168060/193192725-483147d5-6b64-426d-b0a3-4918d7679027.png">
-   <img width="240" height="519" src="https://user-images.githubusercontent.com/86168060/193192908-657ed2fd-8167-4555-8551-02339100a511.png">
+  
 </p>
 
 
