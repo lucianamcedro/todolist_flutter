@@ -74,17 +74,18 @@ class _HomePageState extends State<HomePage> {
         iconTheme: IconThemeData(color: context.primaryColor),
         actions: [
           PopupMenuButton(
-            // onSelected: (value) => widget._controller.showOrHideFinishedTasks(),
+            onSelected: (value) =>
+                widget._homecontroller.showOrHideFinishingTask(),
             icon: const Icon(
               Icons.filter_alt,
               size: 32,
             ),
             itemBuilder: (context) => [
-              const PopupMenuItem<bool>(
+              PopupMenuItem<bool>(
                 value: true,
-                child: Text('Mostrar tarefas'
-                    // '${widget._controller.showFinishedTasks ? 'Esconder' : 'Mostrar'} tarefas concluídas',
-                    ),
+                child: Text(
+                  '${widget._homecontroller.showFinishingTasks ? 'Esconder' : 'Mostrar'} tarefas concluídas',
+                ),
               ),
             ],
           ),
