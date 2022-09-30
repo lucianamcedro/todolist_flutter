@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:todolist_provider/app/core/notifier/default_listener_notifier.dart';
 
 import 'package:todolist_provider/app/core/ui/theme/theme_extension.dart';
+import 'package:todolist_provider/app/models/task_filter_enum.dart';
 import 'package:todolist_provider/app/modules/home/home_controller.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_drawer.dart';
 import 'package:todolist_provider/app/modules/home/widgets/home_filters.dart';
@@ -26,12 +28,21 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    widget._homecontroller.loadTotalTasks();
+    DefaultListenerNotifier(changeNotifier: widget._homecontroller).listener(
+        context: context,
+        sucessVoidCallback: ((notifier, listenerNotifier) {
+          listenerNotifier.dispose();
+        }));
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      widget._homecontroller.loadTotalTasks();
+      widget._homecontroller.findTasks(filter: TaskFilterEnum.today);
+    });
   }
 
-  void _goToCreateTask(BuildContext context) {
+  Future<void> _goToCreateTask(BuildContext context) async {
     // Navigator.of(context).pushNamed('/task/create');
-    Navigator.of(context).push(PageRouteBuilder(
+    await Navigator.of(context).push(
+      PageRouteBuilder(
         transitionDuration: const Duration(
           milliseconds: 400,
         ),
@@ -48,7 +59,10 @@ class _HomePageState extends State<HomePage> {
         },
         pageBuilder: (context, animation, secondaryAnimation) {
           return TasksModule().getPage('/task/create', context);
-        }));
+        },
+      ),
+    );
+    widget._homecontroller.refleshPage();
   }
 
   @override
