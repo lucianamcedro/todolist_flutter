@@ -29,7 +29,6 @@ class _RegisterPageState extends State<RegisterPage> {
       context: context,
       sucessVoidCallback: ((notifier, listenerNotifier) {
         listenerNotifier.dispose();
-        Navigator.of(context).pop();
       }),
       // errorVoidCallback: (notifier, listenerNotifier) {
       //   print('Deu ruim!!!');
