@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         sucessVoidCallback: ((notifier, listenerNotifier) {
           listenerNotifier.dispose();
         }));
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       widget._homecontroller.loadTotalTasks();
       widget._homecontroller.findTasks(filter: TaskFilterEnum.today);
     });

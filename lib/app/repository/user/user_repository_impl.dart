@@ -103,6 +103,7 @@ class UserRepositoryImpl implements UserRepository {
       }
     } on FirebaseAuthException catch (e, s) {
       print(e);
+      print(s);
       if (e.code == 'account-exists-with-different-credential') {
         throw AuthException(message: '''
 Login inválido, você se registrou no Todo List com os seguintes provedores:
@@ -112,6 +113,7 @@ ${loginMethods?.join(',')}
         throw AuthException(message: 'Erro ao realizar login');
       }
     }
+    return null;
   }
 
   @override
