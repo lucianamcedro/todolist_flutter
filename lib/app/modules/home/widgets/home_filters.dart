@@ -45,7 +45,7 @@ class _HomeFiltersState extends State<HomeFilters> {
                 taskFilter: TaskFilterEnum.tomorrow,
                 totalTasksModel:
                     context.select<HomeController, TotalTasksModel?>(
-                        (controller) => controller.todayTotalTasks),
+                        (controller) => controller.tomorrowTotalTasks),
                 selected: context.select<HomeController, TaskFilterEnum>(
                         (value) => value.filterSelected) ==
                     TaskFilterEnum.tomorrow,
